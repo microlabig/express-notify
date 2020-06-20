@@ -21,6 +21,12 @@
     REMOTE_DB_NAME='nameDB' # имя удаленной БД
     REMOTE_DB_USER='user'   # логин доступа к удаленной БД
     REMOTE_DB_PASS='pass'   # пароль к удаленной БД
+
+    SMTP_HOST=smtp.yourmailergun.com   # адрес вашего smtp-хоста
+    SMTP_PORT=port                     # порт smtp
+    SMTP_AUTH_USER=user                # логин в smtp-авторизации
+    SMTP_AUTH_PASS=pass                # пароль в smtp-авторизации
+    MAIL_TO=to@domain.com              # адрес email-назначения 
    ```
 
 6. запуск проекта командой `node app`
@@ -41,6 +47,6 @@
             name: String, // имя отправителя
             email: String, // email отправителя
             comment: String, // текст отправителя
-            from: String // с какого источника отправлен (landing, portfolio, service)
+            from: String // с какого источника отправлен (landing, portfolio, service и т.п.)
         }
         ```

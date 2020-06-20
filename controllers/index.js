@@ -1,6 +1,8 @@
 const Mail = require('../api/mail');
 const mail = new Mail();
 
+const email = require('../email');
+
 // ------------
 //     GET
 // ------------
@@ -19,6 +21,9 @@ module.exports.post = async (req, res) => {
     // сохранение в БД и отправка mail
     case '/api/mail':
       result = await mail.save(body);
+      if (result) {
+        email.send(res, body);
+      }
       break;
   }
   if (result) {
@@ -32,13 +37,14 @@ module.exports.post = async (req, res) => {
 //    DELETE
 // ------------
 module.exports.delete = async (req, res) => {
-  const { url } = req;
+  const what = req.url.match(/^\/?API\/.{0,5}\/?/i)[0];
+  const { from } = req.params;
   let result = null;
 
-  switch (url) {
+  switch (what) {
     // удаление всех писем из БД
-    case '/api/mail:portfolio':
-      result = await mail.deleteAll('portfolio');
+    case '/api/mail/':
+      result = await mail.deleteAll(from); // с пометкой from
       break;
   }
   if (result) {

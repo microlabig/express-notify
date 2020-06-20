@@ -16,6 +16,7 @@ module.exports = {
         "no-extra-semi": "error",
         "semi": [2, "always"],
         "no-prototype-builtins": "off",
-        "space-before-function-paren": "off"
+        "space-before-function-paren": "off",
+        "no-unneeded-ternary": "off"
     }
 };

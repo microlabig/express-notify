@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const app = express();
+const helmet = require('helmet');
+
+app.use(helmet());
 
 // парсинг post запросов от клиента
 app.use(bodyParser.urlencoded({ extended: true })); // ключ: значение

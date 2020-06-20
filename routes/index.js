@@ -13,6 +13,6 @@ router.get(/.*$/, ctrl.get);
 
 router.post(/.*$/, ctrl.post);
 
-router.delete(/.*$/, ctrl.delete);
+router.delete('/api/*/:from', ctrl.delete);
 
 module.exports = router;
