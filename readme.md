@@ -1,7 +1,12 @@
 # Сервис нотификаций (Express.js + Mongoose + Docker)
 Сервис уведомлений на email, Telegram.
 
-Итоговый проект находится на heroku [https://microlabig.herokuapp.com](https://microlabig.herokuapp.com "https://microlabig.herokuapp.com")
+Примечания:
+- для отправки email-писем тестировал сервис gmail.com,
+- для отправки сообщений в чат-бот Телеграм - создайте бота (через BotFather). Затем в созданном боте наберите команду `/start` для регистрации пользователя в БД
+
+
+Итоговый проект находится на heroku [https://express-notify.herokuapp.com/](https://express-notify.herokuapp.com/ "https://express-notify.herokuapp.com/")
 
 ## Необходимые действия для запуска проекта
 
