@@ -1,8 +1,9 @@
-const Mail = require('../api/mail');
-const mail = new Mail();
+const { MailAPI } = require('../api');
+const mail = new MailAPI();
 
-const email = require('../email');
+const { telegramBot } = require('../messengers');
 
+const { contentFormat } = require('../helpers');
 // ------------
 //     GET
 // ------------
@@ -22,7 +23,8 @@ module.exports.post = async (req, res) => {
     case '/api/mail':
       result = await mail.save(body);
       if (result) {
-        email.send(res, body);
+        await mail.send(body); // отправить на email
+        await telegramBot.sendBotMessage(contentFormat(body)); // отправить в телеграм
       }
       break;
   }

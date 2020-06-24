@@ -10,19 +10,20 @@ module.exports.validateData = (obj) => {
   return true;
 };
 
-module.exports.template = (content) => {
+module.exports.contentFormat = (content) => {
   const { name = '', email = '', comment = '', from = '' } = content;
   return `
     Имя: ${name}
-    E-mail: ${email}
-    Комментарий: ${comment}
-    Откуда: ${from}
 
-    Отправлено с приложения express.notify! ✔
+    E-mail: ${email}
+
+    Комментарий: ${comment}
+
+    Откуда: ${from}
   `;
 };
 
-module.exports.templateHTML = (content) => {
+module.exports.contentFormatToHTML = (content) => {
   const { name = '', email = '', comment = '', from = '' } = content;
   return `
   <div>

@@ -8,12 +8,14 @@ const mode = process.env.mode;
 const dbPath = mode && mode === 'development' ? LOCAL_PATH : REMOTE_PATH;
 
 const MailDB = require('./mail');
+const BotsDB = require('./bots');
 
 // соединяемся с БД
 mongoose
   .connect(dbPath, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   })
   .then(() => {
     console.log('Connected to DB');
@@ -23,5 +25,6 @@ mongoose
   });
 
 module.exports = {
-  MailDB
+  MailDB,
+  BotsDB
 };
